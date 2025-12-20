@@ -1828,8 +1828,8 @@ const initSettings = () => {
       const hideCategory = hideCategorySwitch.checked;
       const enableFrosted = frostedGlassSwitch.checked;
       const frostedIntensity = frostedGlassIntensityRange.value;
-      const padding = cardPaddingInput.value;
-      const radius = cardRadiusInput.value;
+      const padding = document.getElementById('cardPadding').value;
+      const radius = document.getElementById('cardRadius').value;
 
       [cardStyle1Preview, cardStyle2Preview].forEach(card => {
           if (!card) return;
@@ -1849,8 +1849,7 @@ const initSettings = () => {
           if (enableFrosted) {
               card.classList.add('frosted-glass-effect');
               card.style.setProperty('--frosted-glass-blur', frostedIntensity + 'px');
-              card.classList.remove('bg-white'); // Remove white bg to let frosted effect show (if needed, or frosted class handles it)
-              // Actually frosted class has !important bg-color.
+              card.classList.remove('bg-white'); 
           } else {
               card.classList.remove('frosted-glass-effect');
               card.style.removeProperty('--frosted-glass-blur');
